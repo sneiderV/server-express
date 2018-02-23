@@ -1,0 +1,26 @@
+<!--ejs permite incluir pedazos de html-->
+<% include parcials/head.ejs %>
+
+	<h1>Products</h1>
+<ul>
+	<% for(var i = 0; i < items.length; i++) {%>
+	<li><%= items[i].name%></li>
+	<% } %>
+</ul>
+
+<h3>add a new product</h3>
+<!--agregamos un action para que lo agregue-->
+<form action="/new-product" method="POST">
+	<input type="text" name="newItem">
+	<button type="button" name="button" id="newItem">
+		add a new product
+	</button>
+</form>
+
+<script>
+	const txtNewItem = document.getElementById('newItem');
+	//hace que el cursos se ponga en el campo automaticamente
+	txtNewItem.focus();
+</script>
+
+<% include parcials/footer.ejs %>
